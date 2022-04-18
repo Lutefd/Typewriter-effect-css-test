@@ -29,20 +29,35 @@ h1::after {
 }
 h1::before {
   background: var(--clr-100);
-  animation: typewriter var(--typewriter-speed) steps(21) forwards;
+  animation: typewriter var(--typewriter-speed) 1s steps(21) forwards;
 }
 h1::after {
   width: 0.125em;
   background: black;
-  animation: typewriter var(--typewriter-speed) steps(21) forwards;
+  animation: typewriter var(--typewriter-speed) 1s steps(21) forwards,
+    blink 750ms steps(21) infinite;
+}
+.subtitle {
+  color: hsl(0 0% 0% / 0.7);
+  font-size: 2rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(3.5rem);
+  animation: fadeinUp 2s ease calc(var(--typewriter-speed) + 1.8s) forwards;
 }
 @keyframes typewriter {
   to {
     left: 100%;
   }
 }
-.subtitle {
-  color: hsl(0 0% 0% / 0.7);
-  font-size: 2rem;
-  font-weight: 400;
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+@keyframes fadeinUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
