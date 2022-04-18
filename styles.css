@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400;500&display=swap');
 :root {
   --clr-100: hsl(49 37% 94%);
+  --typewriter-speed: 6s;
 }
 body {
   margin: 0;
@@ -15,6 +16,7 @@ h1 {
   font-size: clamp(1rem, 3vw + 1rem, 4rem);
   position: relative;
   font-family: 'Source Code Pro', monospace;
+  font-weight: 400;
 }
 h1::before,
 h1::after {
@@ -26,8 +28,13 @@ h1::after {
   bottom: 0;
 }
 h1::before {
-  background: blue;
-  animation: typewriter 4s steps(21) forwards;
+  background: var(--clr-100);
+  animation: typewriter var(--typewriter-speed) steps(21) forwards;
+}
+h1::after {
+  width: 0.125em;
+  background: black;
+  animation: typewriter var(--typewriter-speed) steps(21) forwards;
 }
 @keyframes typewriter {
   to {
